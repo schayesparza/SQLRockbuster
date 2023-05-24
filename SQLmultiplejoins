@@ -1,0 +1,23 @@
+Task: Write a query to find the top 5 customers in the top 10 cities who have paid the highest total amounts to Rockbuster.
+Explanation: A SQL syntax using an inner join which shows all films by genre, rating, language, number of rentals, and total profit made. 
+
+SELECT 
+  A.customer_id, 
+  A.first_name AS "customer first name",
+  A.last_name AS "customer last name",
+  D.country,
+  C.city,
+  SUM(E.amount) AS "total amount paid"
+FROM customer A
+INNER JOIN address B ON A.address_id = B.address_id
+INNER JOIN city C on B.city_id = C.city_id
+INNER JOIN country D on C.country_id = D.country_id
+INNER JOIN payment E ON A.customer_id = E.customer_id
+WHERE city IN('Aurora','Acua','Citrus Heights','Iwaki','Ambattur','Shanwei','So Leopoldo','Teboksary','Tianjin','Cianjur')
+GROUP BY A.customer_id,
+  first_name, 
+  last_name, 
+  country,
+  city
+ORDER BY "total amount paid" DESC
+LIMIT 5
