@@ -12,6 +12,6 @@ The objective of the project is to help the company launch the new service by an
 # Data
 A relational database made up of 17 tables contatining data on film rentals, customers, actors, payments and more.
 
-Link to data [X]
+Link to data [[X]](http://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
 
 
